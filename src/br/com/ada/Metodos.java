@@ -11,6 +11,8 @@ public class Metodos {
     ArrayList<Livro> listLivro = new ArrayList();
     Scanner scanner = new Scanner(System.in);
 
+    public int caixaLivraria = 1000;
+
     public Integer unicoId = 0;
 
     public void imprimirMenu() {
@@ -55,10 +57,11 @@ public class Metodos {
                     break;
 
                 case 5:
+                comprarProduto();
                     break;
 
                 case 6:
-                    produtos.visualizarCaixa();
+                    System.out.println("O caixa contém: " + caixaLivraria + " R$");
                     break;
 
                 case 7:
@@ -442,6 +445,65 @@ public class Metodos {
             ;
         }
     }
+
     
+    public void comprarProduto(){
+        System.out.println("Digite o id do produto que deseja comprar: ");
+        
+        int verificadorId = scanner.nextInt();
+        for (Album item : listAlbum) {
+            if (item.produtoId == verificadorId) {
+               caixaLivraria = caixaLivraria + item.produtoPreço;
+               listAlbum.remove(item);
+               System.out.println("Produto " + item.produtoNome + " comprado com sucesso!" );
+               return;
+            }
+            
+        }
+
+        for (Brinquedo item : listBrinquedo) {
+            if (item.produtoId == verificadorId) {
+                caixaLivraria = caixaLivraria + item.produtoPreço;
+                listBrinquedo.remove(item);
+                System.out.println("Produto " + item.produtoNome + " comprado com sucesso!" );
+                return;
+            }
+            
+        }
+
+        for (Filme item : listFilme) {
+            if (item.produtoId == verificadorId) {
+                caixaLivraria = caixaLivraria + item.produtoPreço;
+                listFilme.remove(item);
+                System.out.println("Produto " + item.produtoNome + " comprado com sucesso!" );
+                return;
+            }
+            
+        }
+
+        for (Jogo item : listJogo) {
+            if (item.produtoId == verificadorId) {
+                caixaLivraria = caixaLivraria + item.produtoPreço;
+                listJogo.remove(item);
+                System.out.println("Produto " + item.produtoNome + " comprado com sucesso!" );
+                return;
+            }
+            
+        }
+
+        for (Livro item : listLivro) {
+            if (item.produtoId == verificadorId) {
+                caixaLivraria = caixaLivraria + item.produtoPreço;
+                listLivro.remove(item);
+                System.out.println("Produto " + item.produtoNome + " comprado com sucesso!" );
+                return;
+            }
+            ;
+        }
+
+        System.out.println("Id de produto não encontrado!");
+        comprarProduto();
+    }
+
 
 }
