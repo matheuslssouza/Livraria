@@ -43,6 +43,7 @@ public class Metodos {
                     break;
 
                 case 2:
+                removerProduto();
                     break;
 
                 case 3:
@@ -77,7 +78,7 @@ public class Metodos {
         System.out.println("              3 - Filme                    ");
         System.out.println("              4 - Jogo                     ");
         System.out.println("              5 - Livro                    ");
-        System.out.println("              6 - Sair                     ");
+        System.out.println("              6 - Voltar                   ");
         System.out.println("-------------------------------------------");
 
         int validacaoMenu = scanner.nextInt();
@@ -246,7 +247,7 @@ public class Metodos {
         System.out.println("Digite um novo valor: ");
         int novoPreço = scanner.nextInt();
         scanner.nextLine();
-
+       
         for (Album item : listAlbum) {
             if (item.produtoId == verificadorId) {
 
@@ -286,6 +287,7 @@ public class Metodos {
             }
             ;
         }
+        
 
     }
 
@@ -297,7 +299,8 @@ public class Metodos {
         System.out.println("              3 - Lista de Filmes          ");
         System.out.println("              4 - Lista de Jogos           ");
         System.out.println("              5 - Lista de Livros          ");
-        System.out.println("              6 - Voltar                   ");
+        System.out.println("              6 - Listar todos produtos    ");
+        System.out.println("              7 - Voltar                   ");
         System.out.println("-------------------------------------------");
 
         int validacaoMenu = scanner.nextInt();
@@ -361,10 +364,84 @@ public class Metodos {
                 break;
 
             case 6:
+                System.out.println("Todos os produtos listados são: ");
+                for (Album item : listAlbum) {
+                    item.caracteristicasAlbum();
+                }
+                for (Brinquedo item : listBrinquedo) {
+                    item.caracteristicasBrinquedo();
+
+                }
+
+                for (Filme item : listFilme) {
+                    item.caracteristicasFilme();
+
+                }
+
+                for (Jogo item : listJogo) {
+                    item.caracteristicasJogo();
+
+                }
+                for (Livro item : listLivro) {
+                    item.caracteristicasLivro();
+
+                }
+                break;
+            case 7:
                 iniciarPrograma();
                 break;
         }
 
     }
+
+    public void removerProduto(){
+        System.out.println("Digite o id do produto que deseja remover: ");
+        int verificadorId = scanner.nextInt();
+        for (Album item : listAlbum) {
+            if (item.produtoId == verificadorId) {
+
+                listAlbum.remove(item);
+                break;
+            }
+            
+        }
+
+        for (Brinquedo item : listBrinquedo) {
+            if (item.produtoId == verificadorId) {
+
+                listBrinquedo.remove(item);
+                break;
+            }
+            
+        }
+
+        for (Filme item : listFilme) {
+            if (item.produtoId == verificadorId) {
+
+                listFilme.remove(item);
+                break;
+            }
+            
+        }
+
+        for (Jogo item : listJogo) {
+            if (item.produtoId == verificadorId) {
+
+                listJogo.remove(item);
+                break;
+            }
+            
+        }
+
+        for (Livro item : listLivro) {
+            if (item.produtoId == verificadorId) {
+
+                listLivro.remove(item);
+                break;
+            }
+            ;
+        }
+    }
+    
 
 }
